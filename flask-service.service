@@ -1,0 +1,13 @@
+[Unit]
+Description=flask-service
+Requires=mysqld.service redis.service mongod.service
+After=mongod.service mysqld.service redis.service
+
+[Service]
+ExecStart=/usr/bin/python3 -u /usr/local/myservices/flask-service/flask-service.py
+ExecReload=/bin/kill -s SIGHUP $MAINPID
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
