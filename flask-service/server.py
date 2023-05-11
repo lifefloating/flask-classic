@@ -8,7 +8,7 @@ from common import falseReturn
 from db_base import db_session
 
 server = Flask(__name__)
-for file_name in os.listdir(os.path.dirname(os.path.abspath(__file__)) + 'router/'):
+for file_name in os.listdir(os.path.dirname(os.path.abspath(__file__)) + '/router/'):
     if file_name.endswith('_app.py'):
         name = os.path.splitext(file_name)[0]
         module = importlib.import_module(name)
